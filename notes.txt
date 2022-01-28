@@ -1,0 +1,7 @@
+Git Installation -
+
+brew install git
+
+git config --global user.name "your_github_username"
+
+git config --global user.email "your_email@github.com"
