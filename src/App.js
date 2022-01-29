@@ -1,12 +1,13 @@
 import './App.css';
 import { CounterButton } from './CounterButton';
+import { CounterProvider } from './CounterProvider';
 
 function App() {
   return (
-    <div className="App">
-      <h1>State Management Example - By Use State Hook</h1>
+    <CounterProvider>
+      <h1>State Management Example - By Use Context Hook</h1>
       <CounterButton />
-    </div>
+    </CounterProvider>
   );
 }
 
