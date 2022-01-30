@@ -3,7 +3,7 @@ import { counterState } from "../atoms/counterState";
 
 export const numberOfClicksSelector = selector({
     key: 'numberOfClicksSelector',
-    get: ({ get}) => {
+    get: ({ get }) => {
         const clicksData = get(counterState);
         const totalClicks = clicksData.reduce((sum, click) => {
             return sum + click.amount;
