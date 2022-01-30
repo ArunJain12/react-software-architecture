@@ -1,9 +1,9 @@
 import { useRecoilValue } from 'recoil';
-import { counterState } from './atoms/counterState';
+import { numberOfClicksSelector } from './selectors/numberOfClicksSelector';
 
 export const DisplayCount = () => {
-    const numberOfClicks = useRecoilValue(counterState);
+    const clicksData = useRecoilValue(numberOfClicksSelector);
     return (
-        <h2>Number of Clicks: {numberOfClicks}</h2>
+        <h2>Number of Clicks: {clicksData}</h2>
     );
 };
