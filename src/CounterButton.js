@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getNumberOfClicks } from './selectors/numberOfClicks';
+import { incrementByValue } from './selectors/incrementByValue';
+import { counterButtonClicked_V1, counterButtonClicked_V2 } from './actions/counterActions';
+import { setIncrementBy } from './actions/incrementActions';
 
 export const CounterButton = () => {
-    const [numberOfClicks, setNumberOfClicks] = useState(0);
-    const [incrementBy, setIncrementBy] = useState(1);
+    const numberOfClicks = useSelector(getNumberOfClicks);
+    const incrementBy = useSelector(incrementByValue);
+    const dispatch = useDispatch();
+   
     return (
         <>
             <p>You have clicked the button {numberOfClicks} times.</p>
@@ -10,15 +16,16 @@ export const CounterButton = () => {
                 Increment By:
                 <input
                     value={incrementBy}
-                    onChange={(e) => setIncrementBy(Number(e.target.value))}
+                    onChange={(e) => dispatch(setIncrementBy(Number(e.target.value)))}
                     type="number"
                 />
             </label>
             <button
-                onClick={() => setNumberOfClicks(numberOfClicks+incrementBy)}
+                // onClick = {() => dispatch(counterButtonClicked_V1)}
+                onClick={() => dispatch(counterButtonClicked_V2(incrementBy))}
             >
                 Click
             </button>
         </>
     )
-}
+};

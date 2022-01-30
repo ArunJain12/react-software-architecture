@@ -1,12 +1,13 @@
-import './App.css';
+import { Provider } from 'react-redux';
 import { CounterButton } from './CounterButton';
+import { store } from './store/store';
 
 function App() {
   return (
-    <div className="App">
-      <h1>State Management Example - By Use State Hook</h1>
+    <Provider store={store}>
+      <h1>State Management Example - Using Redux</h1>
       <CounterButton />
-    </div>
+    </Provider>
   );
 }
 
